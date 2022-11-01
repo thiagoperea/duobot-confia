@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">DuoBot Confia</string>
     <string name="api_data_screen">Api Data</string>
+    <string name="version_description">Latest Version: %s</string>
+    <string name="available_tags">Available tags: %s</string>
 </resources>

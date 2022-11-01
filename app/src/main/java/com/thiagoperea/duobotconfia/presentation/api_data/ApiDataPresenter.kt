@@ -1,8 +1,9 @@
 package com.thiagoperea.duobotconfia.presentation.api_data
 
 import com.thiagoperea.duobotconfia.data.api.RiotService
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ApiDataPresenter(
@@ -12,15 +13,29 @@ class ApiDataPresenter(
 
     fun loadApiData() {
 
-        runBlocking(Dispatchers.Main) {
+        CoroutineScope(Dispatchers.Main).launch {
             screen.showLoading()
 
-            val versions = withContext(Dispatchers.IO) {
+            // versions loading
+            val allVersions = withContext(Dispatchers.IO) {
                 riotApi.listVersions()
             }
+            val latestVersion = allVersions.first()
+
+            // champion data loading
+            val championData = withContext(Dispatchers.IO) {
+                riotApi.getAllChampions(latestVersion)
+            }
+            val championList = championData.data.values.toList()
+
+            // filtering champion tags
+            val championTagsAvailable = championList.flatMap { it.roles }.distinctBy { it }
 
             screen.hideLoading()
-            screen.showVersions(versions)
+
+            screen.showVersion(latestVersion)
+            screen.showChampionData(championList, latestVersion)
+            screen.showAvailableTags(championTagsAvailable)
         }
     }
 }

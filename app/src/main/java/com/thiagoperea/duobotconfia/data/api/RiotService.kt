@@ -12,3 +12,6 @@ interface RiotService {
     @GET("cdn/{game_version}/data/en_US/champion.json")
     suspend fun getAllChampions(@Path("game_version") gameVersion: String): ChampionApiResponse
 }
+
+// TODO: example of square image
+// http://ddragon.leagueoflegends.com/cdn/12.21.1/img/champion/Aatrox.png

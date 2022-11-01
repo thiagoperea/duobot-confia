@@ -29,12 +29,31 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/responsePlaceholder"
+        android:id="@+id/txtLatestVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loadDataButton"
+        tools:text="Latest Version: XX.XX.XX" />
+
+    <TextView
+        android:id="@+id/txtAvailableTags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/txtLatestVersion"
+        app:layout_constraintTop_toBottomOf="@id/txtLatestVersion"
+        tools:text="[TAG1, TAG2, TAG3]" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChampions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/txtAvailableTags" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

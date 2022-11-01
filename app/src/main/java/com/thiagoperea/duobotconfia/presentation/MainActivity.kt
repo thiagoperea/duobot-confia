@@ -9,7 +9,6 @@ import com.thiagoperea.duobotconfia.presentation.api_data.ApiDataActivity
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
