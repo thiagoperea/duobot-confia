@@ -1,6 +1,7 @@
 package com.thiagoperea.duobotconfia.presentation.api_data
 
 import com.thiagoperea.duobotconfia.data.api.RiotService
+import com.thiagoperea.duobotconfia.data.model.Champion
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -10,6 +11,8 @@ class ApiDataPresenter(
     val screen: ApiDataActivity,
     val riotApi: RiotService
 ) {
+
+    val championList = mutableListOf<Champion>()
 
     fun loadApiData() {
 
@@ -26,7 +29,8 @@ class ApiDataPresenter(
             val championData = withContext(Dispatchers.IO) {
                 riotApi.getAllChampions(latestVersion)
             }
-            val championList = championData.data.values.toList()
+            championList.clear()
+            championList.addAll(championData.data.values.toList())
 
             // filtering champion tags
             val championTagsAvailable = championList.flatMap { it.roles }.distinctBy { it }
@@ -37,5 +41,13 @@ class ApiDataPresenter(
             screen.showChampionData(championList, latestVersion)
             screen.showAvailableTags(championTagsAvailable)
         }
+    }
+
+    fun getRandomChampion() {
+        val mageChampions = championList.filter { it.roles.contains("Support") }
+
+        val randomChampion = mageChampions.random()
+
+        screen.showRandomChampion(randomChampion)
     }
 }

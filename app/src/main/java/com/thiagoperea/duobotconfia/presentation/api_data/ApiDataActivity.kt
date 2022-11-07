@@ -2,12 +2,14 @@ package com.thiagoperea.duobotconfia.presentation.api_data
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.thiagoperea.duobotconfia.R
 import com.thiagoperea.duobotconfia.data.api.RiotService
 import com.thiagoperea.duobotconfia.data.model.Champion
@@ -31,6 +33,10 @@ class ApiDataActivity : AppCompatActivity() {
     private fun setupListeners() {
         findViewById<Button>(R.id.loadDataButton).setOnClickListener {
             presenter.loadApiData()
+        }
+
+        findViewById<Button>(R.id.getChampionButton).setOnClickListener {
+            presenter.getRandomChampion()
         }
     }
 
@@ -61,6 +67,12 @@ class ApiDataActivity : AppCompatActivity() {
 
     fun showAvailableTags(championTagsAvailable: List<String>) {
         findViewById<TextView>(R.id.txtAvailableTags).text = getString(R.string.available_tags, championTagsAvailable.toString())
+    }
+
+    fun showRandomChampion(randomChampion: Champion) {
+        val rootView = findViewById<ViewGroup>(R.id.root)
+
+        Snackbar.make(this, rootView, "Champion selected: ${randomChampion.name}", Snackbar.LENGTH_LONG).show()
     }
 }
 
