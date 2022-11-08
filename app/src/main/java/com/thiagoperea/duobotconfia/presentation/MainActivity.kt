@@ -22,5 +22,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.getChampionsButton).setOnClickListener {
             Toast.makeText(this, "TESTE", Toast.LENGTH_SHORT).show()
         }
+
+        findViewById<Button>(R.id.qualquerCoisa).setOnClickListener {
+            val fazAi = Intent(this, ChampionSelect::class.java)
+            startActivity(fazAi)
+        }
     }
 }
