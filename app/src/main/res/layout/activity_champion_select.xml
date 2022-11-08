@@ -61,14 +61,57 @@
         app:layout_constraintVertical_bias="0" />
 
     <ImageView
-        android:id="@+id/imageCarry"
+        android:id="@+id/imageCarryBack"
         android:layout_width="180dp"
         android:layout_height="250dp"
         android:layout_marginEnd="16dp"
+        android:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/card_back" />
+
+    <ImageView
+        android:id="@+id/imageCarryFront"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="1dp"
+        android:src="@drawable/card_front"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageCarryChampion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageCarryFront"
+        app:layout_constraintEnd_toEndOf="@id/imageCarryFront"
+        app:layout_constraintStart_toStartOf="@id/imageCarryFront"
+        app:layout_constraintTop_toTopOf="@id/imageCarryFront"
+        app:srcCompat="@drawable/shen_0" />
+
+    <TextView
+        android:id="@+id/textCarryName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:fontFamily="@font/cinzel_bold"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:text="Shen"
+        android:textColor="@color/text_gold"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageCarryFront"
+        app:layout_constraintEnd_toEndOf="@id/imageCarryChampion"
+        app:layout_constraintStart_toStartOf="@id/imageCarryChampion"
+        app:layout_constraintTop_toBottomOf="@id/imageCarryChampion"
+        app:layout_constraintVertical_bias="0" />
+
 
     <ImageView
         android:id="@+id/imageRefresh"
@@ -78,7 +121,7 @@
         android:background="?selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageCarry"
+        app:layout_constraintTop_toBottomOf="@+id/imageCarryFront"
         app:srcCompat="@drawable/refresh_button" />
 
     <ImageView
@@ -91,4 +134,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

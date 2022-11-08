@@ -44,5 +44,6 @@ class ChampionSelectActivity : AppCompatActivity() {
 
     private fun revealChampions() {
         binding.imageSupportBack.visibility = View.GONE
+        binding.imageCarryBack.visibility = View.GONE
     }
 }
