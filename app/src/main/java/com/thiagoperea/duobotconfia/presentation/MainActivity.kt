@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.qualquerCoisa).setOnClickListener {
-            val fazAi = Intent(this, ChampionSelect::class.java)
+            val fazAi = Intent(this, ChampionSelectActivity::class.java)
             startActivity(fazAi)
         }
     }
