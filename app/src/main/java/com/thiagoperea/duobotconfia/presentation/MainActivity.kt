@@ -27,5 +27,10 @@ class MainActivity : AppCompatActivity() {
             val fazAi = Intent(this, ChampionSelectActivity::class.java)
             startActivity(fazAi)
         }
+
+        findViewById<Button>(R.id.setSpecButton).setOnClickListener {
+            val telinha = Intent(this, SetSpec::class.java)
+            startActivity(telinha)
+        }
     }
 }
