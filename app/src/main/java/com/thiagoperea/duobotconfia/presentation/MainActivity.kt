@@ -62,13 +62,19 @@ class MainActivity : AppCompatActivity() {
                 createService().getAllSpells(gameVersion)
             }
 
-            binding.txtResponse.text = spellsData.toString()
-
             val spellsDataAsList = spellsData.data.map { it.value }
-            val randomSpell = spellsDataAsList.random()
+            val spellsFiltered = spellsDataAsList.filter { it.modes.contains("CLASSIC") }
+
+            val spellsFormatted = StringBuilder()
+
+            spellsFiltered.forEach {
+                spellsFormatted.append("Spell: ${it.name}\n")
+            }
+
+            binding.txtResponse.text = spellsFormatted
+
+            val randomSpell = spellsFiltered.random()
             val imageUrl = randomSpell.image.squareImgUrl
-
-
 
             binding.imgSpell.load("http://ddragon.leagueoflegends.com/cdn/$gameVersion/img/spell/$imageUrl")
 

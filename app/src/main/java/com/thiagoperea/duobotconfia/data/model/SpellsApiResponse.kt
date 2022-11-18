@@ -9,7 +9,8 @@ data class SpellsApiResponse(
 
 data class AllSpellsResponse(
     val name: String,
-    val image: SpellImageResponse
+    val image: SpellImageResponse,
+    val modes: List<String>
 )
 
 data class SpellImageResponse(
