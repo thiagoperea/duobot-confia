@@ -2,11 +2,9 @@ package com.thiagoperea.duobotconfia.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
-import com.thiagoperea.duobotconfia.R
 import com.thiagoperea.duobotconfia.databinding.ActivityMainBinding
 import com.thiagoperea.duobotconfia.presentation.api_data.ApiDataActivity
 import com.thiagoperea.duobotconfia.presentation.api_data.createService
@@ -28,21 +26,21 @@ class MainActivity : AppCompatActivity() {
         setupButton()
 
 
-        findViewById<Button>(R.id.apiDataButton).setOnClickListener {
+        binding.apiDataButton.setOnClickListener {
             val intent = Intent(this, ApiDataActivity::class.java)
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.getChampionsButton).setOnClickListener {
+        binding.getChampionsButton.setOnClickListener {
             Toast.makeText(this, "TESTE", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<Button>(R.id.qualquerCoisa).setOnClickListener {
+        binding.qualquerCoisa.setOnClickListener {
             val fazAi = Intent(this, ChampionSelectActivity::class.java)
             startActivity(fazAi)
         }
 
-        findViewById<Button>(R.id.setSpecButton).setOnClickListener {
+        binding.setSpecButton.setOnClickListener {
             val telinha = Intent(this, SetSpec::class.java)
             startActivity(telinha)
         }
